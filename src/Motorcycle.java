@@ -56,7 +56,7 @@ public class Motorcycle extends Vehicle{
 
     @Override
     public String toString() {
-        return super.toString() + "Motorcycle{" + "helmetType=" + helmetType + ", vest=" + vest + ", motorPower=" + motorPower + '}';
+        return super.toString() + "\tMotorcycle" + "\nHelmet Type: " + helmetType + "\nVest: " + vest + "\nMotor Power: " + motorPower + "\n";
     }
     
     

@@ -18,7 +18,7 @@ public class Rent {
     private SalesRepresentative salesRep;
     private Customer customer;
     private Date pickUpDate,
-            dropOfDate;
+            dropOffDate;
     private Vehicle vehicleRented;
     private double paymentAmount;
 
@@ -27,14 +27,14 @@ public class Rent {
         this.salesRep = salesRep;
         this.customer = customer;
         this.pickUpDate = pickUpDate;
-        this.dropOfDate = dropOfDate;
+        this.dropOffDate = dropOfDate;
         this.vehicleRented = vehicleRented;
         this.paymentAmount = vehicleRented.calculatePrice(getRentDurationInDays());
     }
     
     public int getRentDurationInDays() 
     {
-        long diff = pickUpDate.getTime() - dropOfDate.getTime();
+        long diff = pickUpDate.getTime() - dropOffDate.getTime();
         return (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
@@ -55,7 +55,7 @@ public class Rent {
     }
 
     public Date getDropOfDate() {
-        return dropOfDate;
+        return dropOffDate;
     }
 
     public Vehicle getVehicleRented() {
@@ -68,7 +68,7 @@ public class Rent {
 
     @Override
     public String toString() {
-        return "Rent{" + "id=" + id + ", salesRep=" + salesRep + ", customer=" + customer + ", pickUpDate=" + pickUpDate + ", dropOfDate=" + dropOfDate + ", vehicleRented=" + vehicleRented + ", paymentAmount=" + paymentAmount + '}';
+        return "\tRent" + "\nId: " + id + "\nSales Representative: " + salesRep + "\nCustomer: " + customer + "\nPick Up Date=" + pickUpDate + "\nDrop-off Date: " + dropOffDate + "\nVehicle Rented:" + vehicleRented + "\nPayment Amount: " + paymentAmount + "\n";
     }
     
     

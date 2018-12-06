@@ -85,6 +85,6 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" + "licencePlate=" + licencePlate + ", brand=" + brand + ", model=" + model + ", year=" + year + ", dailyPrice=" + dailyPrice + ", isRented=" + isRented + ", minAgeToRent=" + minAgeToRent + '}';
+        return "\tVehicle" + "\nLicence Plate: " + licencePlate + "\nBrand: " + brand + "\nModel: " + model + "\nYear: " + year + "\nDaily Price: " + dailyPrice + "\n Is Rented: " + isRented + "\nMinimum Age to Rent: " + minAgeToRent + "\n";
     }
 }

@@ -70,7 +70,7 @@ public class SalesRepresentative extends Person{
 
     @Override
     public String toString() {
-        return super.toString() + "SalesRepresentative{" + "baseSalary=" + baseSalary + ", commisionPercentage=" + commisionPercentage + ", totalSaleAmount=" + totalSaleAmount + '}';
+        return super.toString() + "\tSalesRepresentative" + "\nBase Salary: " + baseSalary + "\nCommision Percentage: " + commisionPercentage + "\nTotal Sale Amount: " + totalSaleAmount + "\n";
     }
     
     

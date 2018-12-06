@@ -29,7 +29,7 @@ public class Customer extends Person{
 
     @Override
     public String toString() {
-        return super.toString() + "Customer{" + "registerDate=" + registerDate + '}';
+        return super.toString() + "\tCustomer" + "\nRegister Date: " + registerDate + "\n";
     }
 
     

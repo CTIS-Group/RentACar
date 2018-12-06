@@ -55,7 +55,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "ssn=" + ssn + ", name=" + name + ", surname=" + surname + ", age=" + age + '}';
+        return "\tPerson" + "\n Social Security Number: " + ssn + "\nName: " + name + "\nSurname: " + surname + "\nAge: " + age + "\n";
     }
     
     
