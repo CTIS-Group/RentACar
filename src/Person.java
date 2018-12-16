@@ -8,7 +8,7 @@
  *
  * @author Gencturk
  */
-public abstract class Person {
+public abstract class Person implements FileInterface{
     protected String ssn,
             name,
             surname;
@@ -55,7 +55,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "\tPerson" + "\n Social Security Number: " + ssn + "\nName: " + name + "\nSurname: " + surname + "\nAge: " + age + "\n";
+        return "Person{" + "ssn=" + ssn + ", name=" + name + ", surname=" + surname + ", age=" + age + '}';
     }
     
     

@@ -8,7 +8,7 @@
  *
  * @author Gencturk
  */
-public abstract class Vehicle {
+public abstract class Vehicle implements FileInterface{
     protected String licencePlate,
             brand,
             model;
@@ -25,6 +25,16 @@ public abstract class Vehicle {
         this.dailyPrice = dailyPrice;
         this.minAgeToRent = minAgeToRent;
         this.isRented = false;
+    }
+
+    public Vehicle(String licencePlate, String brand, String model, int year, double dailyPrice, boolean isRented, int minAgeToRent) {
+        this.licencePlate = licencePlate;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.dailyPrice = dailyPrice;
+        this.isRented = isRented;
+        this.minAgeToRent = minAgeToRent;
     }
     
     public boolean isCustomerEligible(Customer customer)
@@ -85,6 +95,8 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return "\tVehicle" + "\nLicence Plate: " + licencePlate + "\nBrand: " + brand + "\nModel: " + model + "\nYear: " + year + "\nDaily Price: " + dailyPrice + "\n Is Rented: " + isRented + "\nMinimum Age to Rent: " + minAgeToRent + "\n";
+        return "Licence Plate: " + licencePlate + "\nModel: " + model + "\nYear: " + year
+                + "\nDaily Price: " + dailyPrice + "\nisRented" + isRented
+                + "\nMinimum age to rent: " + minAgeToRent + "\n";
     }
 }

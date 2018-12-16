@@ -17,7 +17,12 @@ public class Car extends Vehicle{
         this.numOfSeats = numOfSeats;
         this.fuelType = fuelType;
     }
-    
+
+    public Car(String licencePlate, String brand, String model, int year, double dailyPrice, boolean isRented, int minAgeToRent,int numOfSeats, String fuelType) {
+        super(licencePlate, brand, model, year, dailyPrice, isRented, minAgeToRent);
+        this.numOfSeats = numOfSeats;
+        this.fuelType = fuelType;
+    }
     
     public double calculatePrice(int numOfDays)
     {
@@ -47,7 +52,12 @@ public class Car extends Vehicle{
 
     @Override
     public String toString() {
-        return super.toString() + "\tCar" + "\nNumber of Seats: " + numOfSeats + "\nFuel Type: " + fuelType + "\n";
+        return "--Car--\n" + super.toString() + "# of seats: " + numOfSeats + "\nFuel type: " + fuelType + "\n";
+    }
+    public String toStringForWriting()
+    {
+        //licencePlate,brand,model,year,dailyPrice,isRented,minAgeToRent,numOfSeats,fuelType
+        return licencePlate + "," + brand + "," + model + "," + year + "," + dailyPrice + "," + isRented + "," + minAgeToRent + "," + numOfSeats + "," + fuelType;
     }
     
     

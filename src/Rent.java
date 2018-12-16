@@ -1,7 +1,3 @@
-
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,30 +8,39 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Gencturk
  */
-public class Rent {
+public class Rent implements FileInterface{
     private int id;
     private static int lastUsedId = 100;
     private SalesRepresentative salesRep;
     private Customer customer;
-    private Date pickUpDate,
-            dropOffDate;
+    private SDate pickUpDate,
+            dropOfDate;
     private Vehicle vehicleRented;
     private double paymentAmount;
 
-    public Rent(SalesRepresentative salesRep, Customer customer, Date pickUpDate, Date dropOfDate, Vehicle vehicleRented) {
+    public Rent(SalesRepresentative salesRep, Customer customer, SDate pickUpDate, SDate dropOfDate, Vehicle vehicleRented) {
         this.id = lastUsedId++;
         this.salesRep = salesRep;
         this.customer = customer;
         this.pickUpDate = pickUpDate;
-        this.dropOffDate = dropOfDate;
+        this.dropOfDate = dropOfDate;
         this.vehicleRented = vehicleRented;
         this.paymentAmount = vehicleRented.calculatePrice(getRentDurationInDays());
     }
     
+    public Rent(int id, SalesRepresentative salesRep, Customer customer, SDate pickUpDate, SDate dropOfDate, Vehicle vehicleRented, double paymentAmount) {
+        this.id = id;
+        this.salesRep = salesRep;
+        this.customer = customer;
+        this.pickUpDate = pickUpDate;
+        this.dropOfDate = dropOfDate;
+        this.vehicleRented = vehicleRented;
+        this.paymentAmount = paymentAmount;
+    }
+    
     public int getRentDurationInDays() 
     {
-        long diff = pickUpDate.getTime() - dropOffDate.getTime();
-        return (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+        return dropOfDate.differenceInDays(pickUpDate);
     }
 
     public int getId() {
@@ -50,12 +55,12 @@ public class Rent {
         return customer;
     }
 
-    public Date getPickUpDate() {
+    public SDate getPickUpDate() {
         return pickUpDate;
     }
 
-    public Date getDropOfDate() {
-        return dropOffDate;
+    public SDate getDropOfDate() {
+        return dropOfDate;
     }
 
     public Vehicle getVehicleRented() {
@@ -68,10 +73,10 @@ public class Rent {
 
     @Override
     public String toString() {
-        return "\tRent" + "\nId: " + id + "\nSales Representative: " + salesRep + "\nCustomer: " + customer + "\nPick Up Date=" + pickUpDate + "\nDrop-off Date: " + dropOffDate + "\nVehicle Rented:" + vehicleRented + "\nPayment Amount: " + paymentAmount + "\n";
+        return "Rent{" + "id=" + id + ", salesRep=" + salesRep + ", customer=" + customer + ", pickUpDate=" + pickUpDate + ", dropOfDate=" + dropOfDate + ", vehicleRented=" + vehicleRented + ", paymentAmount=" + paymentAmount + '}';
     }
-    
-    
-    
-    
+    public String toStringForWriting()
+    {
+        return id+","+salesRep.getSsn()+","+customer.getSsn()+","+pickUpDate.toString()+","+dropOfDate.toString()+","+vehicleRented.getLicencePlate()+","+paymentAmount;
+    }
 }

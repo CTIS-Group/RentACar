@@ -17,6 +17,12 @@ public class Minivan extends Vehicle{
         this.weightCapacity = weightCapacity;
         this.numOfSeats = numOfSeats;
     }
+
+    public Minivan(String licencePlate, String brand, String model, int year, double dailyPrice, boolean isRented, int minAgeToRent,double weightCapacity, int numOfSeats) {
+        super(licencePlate, brand, model, year, dailyPrice, isRented, minAgeToRent);
+        this.weightCapacity = weightCapacity;
+        this.numOfSeats = numOfSeats;
+    }
     
     public double calculatePrice(int numOfDays)
     {
@@ -46,7 +52,12 @@ public class Minivan extends Vehicle{
 
     @Override
     public String toString() {
-        return super.toString() + "\tMinivan" + "\nWeight Capacity: " + weightCapacity + "\nNumber of Seats: " + numOfSeats + "\n";
+        return "--Minivan--\n" + super.toString() + "# of seats: " + numOfSeats + "\nWeight capacity: " + weightCapacity + "\n";
+    }
+    public String toStringForWriting()
+    {
+        //licencePlate,brand,model,year,dailyPrice,isRented,minAgeToRent,weightCapacity,numOfSeats
+        return licencePlate + "," + brand + "," + model + "," + year + "," + dailyPrice + "," + isRented + "," + minAgeToRent + "," + weightCapacity + "," + numOfSeats;
     }
     
     

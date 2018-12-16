@@ -9,14 +9,19 @@
  * @author Gencturk
  */
 public class Motorcycle extends Vehicle{
-    private String helmetType,
-            vest;
+    private String helmetType;
     private int motorPower;
 
-    public Motorcycle(int motorPower, String licencePlate, String brand, String model, int year, double dailyPrice, int minAgeToRent, String helmetType, String vest) {
+    public Motorcycle(String licencePlate, String brand, String model, int year, double dailyPrice, int minAgeToRent, String helmetType, int motorPower) 
+    {
         super(licencePlate, brand, model, year, dailyPrice, minAgeToRent);
         this.helmetType = helmetType;
-        this.vest = vest;
+        this.motorPower = motorPower;
+    }
+
+    public Motorcycle(String licencePlate, String brand, String model, int year, double dailyPrice, boolean isRented, int minAgeToRent, String helmetType, int motorPower) {
+        super(licencePlate, brand, model, year, dailyPrice, isRented, minAgeToRent);
+        this.helmetType = helmetType;
         this.motorPower = motorPower;
     }
     
@@ -34,10 +39,6 @@ public class Motorcycle extends Vehicle{
         return helmetType;
     }
 
-    public String getVest() {
-        return vest;
-    }
-
     public int getMotorPower() {
         return motorPower;
     }
@@ -46,19 +47,20 @@ public class Motorcycle extends Vehicle{
         this.helmetType = helmetType;
     }
 
-    public void setVest(String vest) {
-        this.vest = vest;
-    }
-
     public void setMotorPower(int motorPower) {
         this.motorPower = motorPower;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "\tMotorcycle" + "\nHelmet Type: " + helmetType + "\nVest: " + vest + "\nMotor Power: " + motorPower + "\n";
+        return "--Motorcycle--\n" + super.toString() + "Helmet type: " + helmetType + "\nMotor power: " + motorPower + "\n";
     }
     
+    public String toStringForWriting()
+    {
+        //licencePlate,brand,model,year,dailyPrice,isRented,minAgeToRent,helmetType,motorPower
+        return licencePlate + "," + brand + "," + model + "," + year + "," + dailyPrice + "," + isRented + "," + minAgeToRent + "," + helmetType + "," + motorPower;
+    }
     
     
 }

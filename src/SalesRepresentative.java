@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /*
@@ -13,8 +14,7 @@ import java.util.Date;
  */
 public class SalesRepresentative extends Person{
     private double baseSalary,
-            commisionPercentage,
-            totalSaleAmount;
+            commisionPercentage;
 
     public SalesRepresentative(String ssn, String name, String surname, int age, double baseSalary, double commisionPercentage) {
         super(ssn, name, surname, age);
@@ -29,19 +29,15 @@ public class SalesRepresentative extends Person{
         return getSalary(date.getMonth());
     }
     public double getSalary(int month)
-    {
-        //Because RentSys class has not been implemented yet, the code does not work for now.
-        /*
-        Rent rents = RentSys.GetRentsOfSaleRepresentative(this);
+    {        
+        ArrayList<Rent> rents = RentSys.getRentsOfSalesRep(ssn);
         double totalCommissionAmount = 0;
-        for(int i = 0; i < rents.length; i++)
+        for(int i = 0; i < rents.size(); i++)
         {
-            if(rents[i].getPickUpDate().getMonth() == month)
-                totalCommissionAmount += rents[i].getPaymentAmount();
+            if(rents.get(i).getPickUpDate().getMonth() == month)
+                totalCommissionAmount += rents.get(i).getPaymentAmount();
         }
         return baseSalary + totalCommissionAmount * this.commisionPercentage / 100;
-        */
-        return 0;
     }
 
     public double getBaseSalary() {
@@ -52,10 +48,6 @@ public class SalesRepresentative extends Person{
         return commisionPercentage;
     }
 
-    public double getTotalSaleAmount() {
-        return totalSaleAmount;
-    }
-
     public void setBaseSalary(double baseSalary) {
         this.baseSalary = baseSalary;
     }
@@ -64,13 +56,14 @@ public class SalesRepresentative extends Person{
         this.commisionPercentage = commisionPercentage;
     }
 
-    public void setTotalSaleAmount(double totalSaleAmount) {
-        this.totalSaleAmount = totalSaleAmount;
-    }
-
     @Override
     public String toString() {
-        return super.toString() + "\tSalesRepresentative" + "\nBase Salary: " + baseSalary + "\nCommision Percentage: " + commisionPercentage + "\nTotal Sale Amount: " + totalSaleAmount + "\n";
+        return super.toString() + "SalesRepresentative{" + "baseSalary=" + baseSalary + ", commisionPercentage=" + commisionPercentage + '}';
+    }
+    public String toStringForWriting()
+    {
+        //ssn,name,surname,age,salary,commissionPct
+        return ssn + "," + name + "," + surname + "," + age + "," + baseSalary + "," + commisionPercentage;
     }
     
     
