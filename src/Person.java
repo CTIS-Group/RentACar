@@ -55,7 +55,7 @@ public abstract class Person implements FileInterface{
 
     @Override
     public String toString() {
-        return "Person{" + "ssn=" + ssn + ", name=" + name + ", surname=" + surname + ", age=" + age + '}';
+        return "SSN: " + ssn + "\nName: " + name + "\nSurname: " + surname + "\nAge: " + age;
     }
     
     

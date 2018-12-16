@@ -52,7 +52,7 @@ public class Car extends Vehicle{
 
     @Override
     public String toString() {
-        return "--Car--\n" + super.toString() + "# of seats: " + numOfSeats + "\nFuel type: " + fuelType + "\n";
+        return "\n--Car--\n" + super.toString() + "# of seats: " + numOfSeats + "\nFuel type: " + fuelType + "\n";
     }
     public String toStringForWriting()
     {

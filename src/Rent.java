@@ -14,7 +14,7 @@ public class Rent implements FileInterface{
     private SalesRepresentative salesRep;
     private Customer customer;
     private SDate pickUpDate,
-            dropOfDate;
+            dropOffDate;
     private Vehicle vehicleRented;
     private double paymentAmount;
 
@@ -23,24 +23,24 @@ public class Rent implements FileInterface{
         this.salesRep = salesRep;
         this.customer = customer;
         this.pickUpDate = pickUpDate;
-        this.dropOfDate = dropOfDate;
+        this.dropOffDate = dropOfDate;
         this.vehicleRented = vehicleRented;
         this.paymentAmount = vehicleRented.calculatePrice(getRentDurationInDays());
     }
     
-    public Rent(int id, SalesRepresentative salesRep, Customer customer, SDate pickUpDate, SDate dropOfDate, Vehicle vehicleRented, double paymentAmount) {
+    public Rent(int id, SalesRepresentative salesRep, Customer customer, SDate pickUpDate, SDate dropOffDate, Vehicle vehicleRented, double paymentAmount) {
         this.id = id;
         this.salesRep = salesRep;
         this.customer = customer;
         this.pickUpDate = pickUpDate;
-        this.dropOfDate = dropOfDate;
+        this.dropOffDate = dropOffDate;
         this.vehicleRented = vehicleRented;
         this.paymentAmount = paymentAmount;
     }
     
     public int getRentDurationInDays() 
     {
-        return dropOfDate.differenceInDays(pickUpDate);
+        return dropOffDate.differenceInDays(pickUpDate);
     }
 
     public int getId() {
@@ -60,7 +60,7 @@ public class Rent implements FileInterface{
     }
 
     public SDate getDropOfDate() {
-        return dropOfDate;
+        return dropOffDate;
     }
 
     public Vehicle getVehicleRented() {
@@ -73,10 +73,10 @@ public class Rent implements FileInterface{
 
     @Override
     public String toString() {
-        return "Rent{" + "id=" + id + ", salesRep=" + salesRep + ", customer=" + customer + ", pickUpDate=" + pickUpDate + ", dropOfDate=" + dropOfDate + ", vehicleRented=" + vehicleRented + ", paymentAmount=" + paymentAmount + '}';
+        return "\n|---- RENT " + id + " ----|\nRent ID: " + id + "\nPick-up Date: " + pickUpDate + "\nDrop-off Date: " + dropOffDate + "\nPayment Amount: " + paymentAmount + " TL\n" + salesRep + customer + vehicleRented + "\n";
     }
     public String toStringForWriting()
     {
-        return id+","+salesRep.getSsn()+","+customer.getSsn()+","+pickUpDate.toString()+","+dropOfDate.toString()+","+vehicleRented.getLicencePlate()+","+paymentAmount;
+        return id+","+salesRep.getSsn()+","+customer.getSsn()+","+pickUpDate.toString()+","+dropOffDate.toString()+","+vehicleRented.getLicencePlate()+","+paymentAmount;
     }
 }

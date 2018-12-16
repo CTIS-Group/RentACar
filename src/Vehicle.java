@@ -69,7 +69,7 @@ public abstract class Vehicle implements FileInterface{
         return dailyPrice;
     }
 
-    public boolean isIsRented() {
+    public boolean isRented() {
         return isRented;
     }
 
@@ -96,7 +96,7 @@ public abstract class Vehicle implements FileInterface{
     @Override
     public String toString() {
         return "Licence Plate: " + licencePlate + "\nModel: " + model + "\nYear: " + year
-                + "\nDaily Price: " + dailyPrice + "\nisRented" + isRented
+                + "\nDaily Price: " + dailyPrice + "\nIs Rented: " + isRented
                 + "\nMinimum age to rent: " + minAgeToRent + "\n";
     }
 }

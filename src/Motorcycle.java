@@ -53,7 +53,7 @@ public class Motorcycle extends Vehicle{
 
     @Override
     public String toString() {
-        return "--Motorcycle--\n" + super.toString() + "Helmet type: " + helmetType + "\nMotor power: " + motorPower + "\n";
+        return "\n--Motorcycle--\n" + super.toString() + "Helmet type: " + helmetType + "\nMotor power: " + motorPower + "\n";
     }
     
     public String toStringForWriting()

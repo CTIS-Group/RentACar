@@ -52,7 +52,7 @@ public class Minivan extends Vehicle{
 
     @Override
     public String toString() {
-        return "--Minivan--\n" + super.toString() + "# of seats: " + numOfSeats + "\nWeight capacity: " + weightCapacity + "\n";
+        return "\n--Minivan--\n" + super.toString() + "# of seats: " + numOfSeats + "\nWeight capacity: " + weightCapacity + "\n";
     }
     public String toStringForWriting()
     {

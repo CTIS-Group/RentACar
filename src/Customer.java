@@ -27,7 +27,7 @@ public class Customer extends Person{
 
     @Override
     public String toString() {
-        return super.toString() + "Customer{" + "registerDate=" + registerDate + '}';
+        return "\n--Customer--\n" + super.toString() + "\nRegister Date: " + registerDate + "\n";
     }
     
     public String toStringForWriting()

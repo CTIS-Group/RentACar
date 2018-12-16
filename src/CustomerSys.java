@@ -37,7 +37,7 @@ public class CustomerSys {
         return null;
     }
     
-    public static ArrayList<Customer> getSalesReps()
+    public static ArrayList<Customer> getCustomers()
     {
         return customers;
     }
