@@ -138,6 +138,8 @@ public class RentSys {
             
             addRent(rent);
         }
+        if(rents.size() > 0)
+            Rent.setLastUsedId(rents.get(rents.size() - 1).getId());
         return true;
     }
     
@@ -158,5 +160,6 @@ public class RentSys {
         
         for(int i = 0; i < rents.size(); i++)
             writer.println(rents.get(i).toStringForWriting());
+        writer.close();
     }
 }

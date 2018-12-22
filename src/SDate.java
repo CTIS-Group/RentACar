@@ -1,3 +1,6 @@
+
+import java.util.Date;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +18,14 @@ public class SDate {
             year;
     private static int dayCount[] = {31,28,31,30,31,30,31,31,30,31,30,31};
     
+    public SDate()
+    {
+        Date date = new Date();
+        day = date.getDate();
+        month = date.getMonth() + 1;
+        year = date.getYear() + 1900;
+    }
+    
     public SDate(int day, int month, int year) 
     {
         this.day = day;
@@ -31,6 +42,23 @@ public class SDate {
             m = 1;
         this.month = m;
         this.year = Integer.parseInt(year);
+    }
+    
+    public void passDays(int days)
+    {
+        day += days;
+        int years = 0;
+        while(day > dayCount[month - 1])
+        {
+            day -= dayCount[month - 1];
+            month++;
+            if(month == 13)
+            {
+                month = 1;
+                years++;
+            }
+        }
+        year += years;
     }
     
     public int differenceInDays(SDate date)

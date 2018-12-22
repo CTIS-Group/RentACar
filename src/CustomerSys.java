@@ -92,5 +92,6 @@ public class CustomerSys {
         
         for(int i = 0; i < customers.size(); i++)
             writer.println(customers.get(i).toStringForWriting());
+        writer.close();
     }
 }

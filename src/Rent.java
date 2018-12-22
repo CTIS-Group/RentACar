@@ -19,7 +19,7 @@ public class Rent implements FileInterface{
     private double paymentAmount;
 
     public Rent(SalesRepresentative salesRep, Customer customer, SDate pickUpDate, SDate dropOfDate, Vehicle vehicleRented) {
-        this.id = lastUsedId++;
+        this.id = ++lastUsedId;
         this.salesRep = salesRep;
         this.customer = customer;
         this.pickUpDate = pickUpDate;
@@ -36,6 +36,11 @@ public class Rent implements FileInterface{
         this.dropOffDate = dropOffDate;
         this.vehicleRented = vehicleRented;
         this.paymentAmount = paymentAmount;
+    }
+
+    public static void setLastUsedId(int id)
+    {
+        lastUsedId = id;
     }
     
     public int getRentDurationInDays() 

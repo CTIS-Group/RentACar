@@ -95,7 +95,7 @@ public abstract class Vehicle implements FileInterface{
 
     @Override
     public String toString() {
-        return "Licence Plate: " + licencePlate + "\nModel: " + model + "\nYear: " + year
+        return "Licence Plate: " + licencePlate + "\nBrand: " + brand + "\nModel: " + model + "\nYear: " + year
                 + "\nDaily Price: " + dailyPrice + "\nIs Rented: " + isRented
                 + "\nMinimum age to rent: " + minAgeToRent + "\n";
     }

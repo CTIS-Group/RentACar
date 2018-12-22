@@ -77,6 +77,45 @@ public class VehicleSys {
         return result;
     }
     
+    public static String getCarsInfo(boolean checkAvailibility)
+    {
+        String result = "";
+        for(int i = 0; i < vehicles.size(); i++)
+        {
+            if(checkAvailibility && vehicles.get(i).isRented)
+                continue;
+            if(vehicles.get(i) instanceof Car)
+                result += vehicles.get(i).toString();            
+        }
+        return result;
+    }
+    
+    public static String getMotorsInfo(boolean checkAvailibility)
+    {
+        String result = "";
+        for(int i = 0; i < vehicles.size(); i++)
+        {
+            if(checkAvailibility && vehicles.get(i).isRented)
+                continue;
+            if(vehicles.get(i) instanceof Motorcycle)
+                result += vehicles.get(i).toString();            
+        }
+        return result;
+    }
+    
+    public static String getMinivansInfo(boolean checkAvailibility)
+    {
+        String result = "";
+        for(int i = 0; i < vehicles.size(); i++)
+        {
+            if(checkAvailibility && vehicles.get(i).isRented)
+                continue;
+            if(vehicles.get(i) instanceof Minivan)
+                result += vehicles.get(i).toString();            
+        }
+        return result;
+    }
+    
     public static boolean readTextFile()
     {
         /*File Structure
@@ -104,10 +143,10 @@ public class VehicleSys {
                 addVehicle(new Car(input[0],input[1],input[2],
                                                     Integer.parseInt(input[3]),
                                                     Double.parseDouble(input[4]),
-                                                    Boolean.getBoolean(input[5]),
+                                                    Boolean.parseBoolean(input[5]),
                                                     Integer.parseInt(input[6]),
                                                     Integer.parseInt(input[7]),
-                                                    input[8]));            
+                                                    input[8]));          
             }
         }
         file = new File("motor.txt");
@@ -126,7 +165,7 @@ public class VehicleSys {
                 addVehicle(new Motorcycle(input[0],input[1],input[2],
                                                     Integer.parseInt(input[3]),
                                                     Double.parseDouble(input[4]),
-                                                    Boolean.getBoolean(input[5]),
+                                                    Boolean.parseBoolean(input[5]),
                                                     Integer.parseInt(input[6]),
                                                     input[7],
                                                     Integer.parseInt(input[8])));          
@@ -148,10 +187,10 @@ public class VehicleSys {
                 addVehicle(new Minivan(input[0],input[1],input[2],
                                                     Integer.parseInt(input[3]),
                                                     Double.parseDouble(input[4]),
-                                                    Boolean.getBoolean(input[5]),
+                                                    Boolean.parseBoolean(input[5]),
                                                     Integer.parseInt(input[6]),
                                                     Double.parseDouble(input[7]),
-                                                    Integer.parseInt(input[8])));          
+                                                    Integer.parseInt(input[8])));
             }
         }
         return true;

@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,10 +24,10 @@ public class SalesRepresentative extends Person{
     public double getSalaryOfCurrentMonth()
     {
         //No-arg constructor of Date initalizes it with the current system date. So, we simply use it to find the current month.
-        Date date = new Date();
-        return getSalary(date.getMonth());
+        SDate date = new SDate();
+        return getCommissionOfMonth(date.getMonth());
     }
-    public double getSalary(int month)
+    public double getCommissionOfMonth(int month)
     {        
         ArrayList<Rent> rents = RentSys.getRentsOfSalesRep(ssn);
         double totalCommissionAmount = 0;
@@ -37,7 +36,12 @@ public class SalesRepresentative extends Person{
             if(rents.get(i).getPickUpDate().getMonth() == month)
                 totalCommissionAmount += rents.get(i).getPaymentAmount();
         }
-        return baseSalary + totalCommissionAmount * this.commisionPercentage / 100;
+        return totalCommissionAmount * this.commisionPercentage / 100;
+    }
+    
+    public double getSalary(int month)
+    {
+        return baseSalary + getCommissionOfMonth(month);
     }
 
     public double getBaseSalary() {

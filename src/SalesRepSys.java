@@ -90,5 +90,6 @@ public class SalesRepSys {
         }
         for(int i = 0; i < salesReps.size(); i++)
             writer.println(salesReps.get(i).toStringForWriting());
+        writer.close();
     }
 }

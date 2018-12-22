@@ -1,0 +1,2 @@
+02 AZ 983,Honda,Ax2,2013,75.0,false,18,Strong,600
+34 EA 312,Honda,PAL,2017,300.0,false,18,Strong,600
