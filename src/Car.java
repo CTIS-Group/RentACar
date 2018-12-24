@@ -33,6 +33,11 @@ public class Car extends Vehicle{
         else //%10 + %3 discount for every day after 7th day to the maximum of %50 discount
             return numOfDays * dailyPrice * (1 - Math.min(0.1 + 0.03 * (numOfDays - 7), 0.5));            
     }
+    
+    public String getDiscountString()
+    {
+        return "4 days to 7 days : %10 discount\nAfter 7 days for each day %3 discount up to %50";
+    }
 
     public int getNumOfSeats() {
         return numOfSeats;

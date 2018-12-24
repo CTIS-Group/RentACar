@@ -33,6 +33,11 @@ public class Minivan extends Vehicle{
         else //%20 + %2 discount for every day after 30th day up to the maximum of %50 discount
             return numOfDays * dailyPrice * (1 - Math.min(0.2 + 0.02 * (numOfDays - 30), 0.5));
     }
+    
+    public String getDiscountString()
+    {
+        return "7 days to 30 days : %20 discount\nAfter 30 days for each day %2 discount up to %50";
+    }
 
     public double getWeightCapacity() {
         return weightCapacity;

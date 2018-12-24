@@ -34,6 +34,11 @@ public class Motorcycle extends Vehicle{
         else //%20 + %3 discount for every day after 7th day up to the maximum of %70 discount
             return numOfDays * dailyPrice * (1 - Math.min(0.2 + 0.03 * (numOfDays - 7), 0.7));            
     }
+    
+    public String getDiscountString()
+    {
+        return "4 days to 7 days : %20 discount\nAfter 7 days for each day %3 discount up to %70";
+    }
 
     public String getHelmetType() {
         return helmetType;

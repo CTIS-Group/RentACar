@@ -103,6 +103,7 @@ public class MainFrame extends javax.swing.JFrame {
         custSearchBT = new javax.swing.JButton();
         custDisplayBT = new javax.swing.JButton();
         custAddNewBT = new javax.swing.JButton();
+        showRentsCB = new javax.swing.JCheckBox();
         employeePanel = new javax.swing.JPanel();
         empIdLB = new javax.swing.JLabel();
         empIdCB = new javax.swing.JComboBox<>();
@@ -177,6 +178,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        showRentsCB.setText("Show Rents");
+
         javax.swing.GroupLayout customerPanelLayout = new javax.swing.GroupLayout(customerPanel);
         customerPanel.setLayout(customerPanelLayout);
         customerPanelLayout.setHorizontalGroup(
@@ -184,20 +187,22 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(customerPanelLayout.createSequentialGroup()
                 .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(customerPanelLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(customerPanelLayout.createSequentialGroup()
-                                .addComponent(custIdTF)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(custIdCB, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(custSearchBT)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(custDisplayBT))))
-                    .addGroup(customerPanelLayout.createSequentialGroup()
                         .addGap(214, 214, 214)
-                        .addComponent(custAddNewBT)))
+                        .addComponent(custAddNewBT))
+                    .addGroup(customerPanelLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(showRentsCB)
+                            .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(customerPanelLayout.createSequentialGroup()
+                                    .addComponent(custIdTF)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(custIdCB, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(custSearchBT)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(custDisplayBT))))))
                 .addContainerGap(99, Short.MAX_VALUE))
         );
         customerPanelLayout.setVerticalGroup(
@@ -209,8 +214,10 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(custIdCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(custSearchBT)
                     .addComponent(custDisplayBT))
+                .addGap(1, 1, 1)
+                .addComponent(showRentsCB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(custAddNewBT)
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -543,7 +550,16 @@ public class MainFrame extends javax.swing.JFrame {
         if(customer == null)
             custResultTA.setText("Customer NOT FOUND!");
         else
-            custResultTA.setText(customer.toString());
+        {
+            String result = customer.toString();
+            if(showRentsCB.isSelected())
+            {
+                ArrayList<Rent> rents = RentSys.getRentsOfCustomer(customer.getSsn());
+                for(int i = 0; i < rents.size(); i++)
+                    result += "\n" + rents.get(i).showLess();
+            }
+            custResultTA.setText(result);
+        }
     }//GEN-LAST:event_custSearchBTActionPerformed
 
     private void custDisplayBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custDisplayBTActionPerformed
@@ -722,6 +738,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel rentIdLB;
     private javax.swing.JPanel rentPanel;
     private javax.swing.JButton rentSearchBT;
+    private javax.swing.JCheckBox showRentsCB;
     private javax.swing.JButton vehicleAddNewBT;
     private javax.swing.JRadioButton vehicleAllRB;
     private javax.swing.JRadioButton vehicleAvailableRB;

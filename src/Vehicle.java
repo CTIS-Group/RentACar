@@ -48,6 +48,8 @@ public abstract class Vehicle implements FileInterface{
     }
     
     public abstract double calculatePrice(int numOfDays);
+    
+    public abstract String getDiscountString();
 
     public String getLicencePlate() {
         return licencePlate;

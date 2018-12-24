@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -79,6 +79,11 @@ public class Rent implements FileInterface{
     @Override
     public String toString() {
         return "\n|---- RENT " + id + " ----|\nRent ID: " + id + "\nPick-up Date: " + pickUpDate + "\nDrop-off Date: " + dropOffDate + "\nPayment Amount: " + paymentAmount + " TL\n" + salesRep + customer + vehicleRented + "\n";
+    }
+    
+    public String showLess()
+    {
+        return "\n|---- RENT " + id + " ----|\nRent ID: " + id + "\nPick-up Date: " + pickUpDate + "\nDrop-off Date: " + dropOffDate + "\nPayment Amount: " + paymentAmount + " TL\n";
     }
     public String toStringForWriting()
     {
